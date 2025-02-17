@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Yosswimming</title>
+    <link rel="icon" href="../static/img/logo1.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body class="flex flex-col">
+<!-- Tombol Menu (☰) -->
+<button id="menuButton" class="absolute top-4 right-4 text-white p-4 rounded-md z-50">
+  ☰
+</button>
+
+<!-- Sidebar -->
+<div id="sidebar" class="w-64 min-h-screen bg-gray-800 text-white fixed p-5 left-0 top-0 transform transition-transform duration-300 -translate-x-full z-50">
+  <h2 class="text-2xl font-bold mb-6">Yosswimming</h2>
+  <ul>
+    <li class="mb-3"><a href="{{ url_for('home')}}" class="block p-2 rounded hover:bg-gray-700">Home</a></li>
+    <li class="mb-3"><a href="{{ url_for('about')}}" class="block p-2 rounded hover:bg-gray-700">About</a></li>
+    <li class="mb-3"><a href="{{ url_for('profil')}}" class="block p-2 rounded hover:bg-gray-700">Profil</a></li>
+    <li class="mb-3"><a href="{{ url_for('contact')}}" class="block p-2 rounded hover:bg-gray-700">Contact</a></li>
+    <li class="mb-3"><a href="{{ url_for('visi_misi')}}" class="block p-2 rounded hover:bg-gray-700">Visi & Misi</a></li>
+    <li class="mb-3"><a href="{{ url_for('docs')}}" class="block p-2 rounded hover:bg-gray-700">Docs</a></li>
+  </ul>
+</div>
+
+
+<!-- Main Content -->
+<div class="flex-grow p-10 bg-gray-800">
+    <!-- Card with Image on Left and Text on Right -->
+    <div class="max-w-4xl mx-auto mb-8 bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <div class="flex flex-col md:flex-row items-center p-6">
+            <img src="../static/img/ERD_YOSWIMMING.PNG" alt="yoswimms" class="w-full md:w-1/2 h-auto object-cover rounded-lg mb-6 md:mb-0 md:mr-6">
+            <div>
+                <h3 class="text-xl font-semibold text-white text-center">ERD (ENTITAS RELATION DIAGRAM)</h3>
+                <h2 class="text-xl font-semibold text-white text-center">Relasi Antar Entitas</h2>
+                <p class="text-gray-300 mt-2 text-sm">Pengunjung ke Pendaftaran (One-to-Many): Setiap Pengunjung bisa melakukan beberapa Pendaftaran. Relasi ini digambarkan dengan Pengunjung memiliki banyak Pendaftaran, tetapi satu Pendaftaran hanya memiliki satu Pengunjung.</p>
+                <p class="text-gray-300 mt-2 text-sm">Pendaftaran ke Informasi (One-to-One): Setiap Pendaftaran hanya memiliki satu Informasi yang berhubungan (misalnya jadwal atau lokasi les). Relasi ini digambarkan dengan Pendaftaran mengarah ke satu Informasi, dan setiap Informasi hanya terkait dengan satu Pendaftaran.</p>
+                <p class="text-gray-300 mt-2 text-sm">Jadwal ke Pendaftaran (One-to-Many): Setiap Jadwal bisa diikuti oleh banyak Pendaftaran. Relasi ini menunjukkan bahwa satu Jadwal dapat diikuti oleh banyak peserta, tetapi setiap Pendaftaran hanya terkait dengan satu Jadwal.</p>
+                <p class="text-gray-300 mt-2 text-sm">Pengunjung ke Jadwal (Many-to-Many): Relasi Many-to-Many antara Pengunjung dan Jadwal. Satu Pengunjung dapat mendaftar untuk banyak Jadwal, dan satu Jadwal dapat diikuti oleh banyak Pengunjung. Tabel penghubung Pendaftaran_Jadwal digunakan untuk mencatat relasi ini.</p>
+                <p class="text-gray-300 mt-2 text-sm">Jadwal ke Lokasi (One-to-Many): Satu Jadwal dapat dilakukan di banyak Lokasi (misalnya, sesi les yang berbeda dilakukan di tempat berbeda).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card with Inner Cards -->
+    <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-semibold text-white text-center mb-6">5W 1H</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="bg-gray-200 p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold text-gray-700 text-center">What (Apa)</h3>
+                <p class="text-gray-600 mt-2">Website ini adalah platform yang menyediakan informasi tentang les renang yang dapat diakses oleh siapa saja yang tertarik untuk belajar renang. Website ini menjelaskan berbagai informasi terkait layanan les renang yang disediakan, termasuk jadwal, lokasi, dan cara mendaftar. Pendaftaran dilakukan melalui form yang ada di linktr.ee/yoswimms.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold text-gray-700 text-center">Who (Siapa)</h3>
+                <p class="text-gray-600 mt-2">Website ini ditujukan kepada individu yang tertarik untuk mengikuti les renang. Informasi yang ada dapat diakses oleh pengunjung, dan pendaftaran dilakukan oleh orang yang berminat mengikuti les.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold text-gray-700 text-center">Where (Dimana)</h3>
+                <p class="text-gray-600 mt-2">Website ini dapat diakses secara online di https://les-renang-yosswiming.vercel.app/, dan layanan les renang tersedia di wilayah Subang dan Bandung (lokasi les ditentukan melalui informasi di website dan link terkait).</p>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+            <div class="bg-gray-200 p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold text-gray-700 text-center">When (Kapan)</h3>
+                <p class="text-gray-600 mt-2">Website ini dapat diakses kapan saja, namun untuk pendaftaran dan jadwal les, pengunjung harus memeriksa informasi yang diperbarui pada periode tertentu. Pendaftaran dilakukan sepanjang tahun.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold text-gray-700 text-center">Why (Mengapa)</h3>
+                <p class="text-gray-600 mt-2">Website ini hadir untuk memberikan informasi yang jelas dan mudah diakses tentang layanan les renang yang ditawarkan oleh Yosswimming. Dengan begitu, orang-orang yang ingin belajar renang dapat memperoleh informasi yang tepat dan mempermudah proses pendaftaran.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold text-gray-700 text-center">How (Bagaimana)</h3>
+                <p class="text-gray-600 mt-2">Pengguna mengakses website untuk mencari informasi terkait les renang, kemudian dapat mengisi formulir pendaftaran melalui link yang diberikan di halaman tersebut. Proses pendaftaran dilakukan secara online.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer bg-neutral text-neutral-content p-10 bg-gray-800">
+    <aside>
+        <img src="../static/img/logo1.png" width="50" height="50" alt="Logo">
+      <p>
+        Copyright © Yosswimming
+      </p>
+    </aside>
+    <nav>
+      <h6 class="footer-title">Social</h6>
+      <div class="grid grid-flow-col gap-4">
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-current">
+            <path
+              d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+          </svg>
+        </a>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-current">
+            <path
+              d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+          </svg>
+        </a>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-current">
+            <path
+              d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+          </svg>
+        </a>
+        <a href="https://linktr.ee/yoswimms" target="_blank"><button class="btn btn-error px-18">Pendaftaran</button></a>
+      </div>
+    </nav>
+  </footer>
+
+
+</body>
+</html>
